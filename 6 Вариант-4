@@ -1,1 +1,9 @@
+# -- coding: utf-8 --
+string = input("Введите строку: ")
+new_string = string.replace("а", "о")
+count = string.count("а")
+length = len(string)
 
+print("Измененная строка:", new_string)
+print("Количество замен:", count)
+print("Количество символов в строке:", length)
