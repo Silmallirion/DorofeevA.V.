@@ -1,0 +1,28 @@
+def read_matrix(file_name):
+    matrix = []
+    with open(file_name, 'r') as file:
+        for line in file:
+            row = list(map(int, line.strip().split()))
+            matrix.append(row)
+    return matrix
+
+def replace_negatives_positives(matrix):
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            if matrix[i][j] < 0:
+                matrix[i][j] = 0
+            elif matrix[i][j] > 0:
+                matrix[i][j] = 1
+
+def print_lower_triangle(matrix, file_name):
+    with open(file_name, 'w') as file:
+        for i in range(len(matrix)):
+            for j in range(i+1):
+                file.write(str(matrix[i][j]) + ' ')
+            file.write('\n')
+
+file_input = "ДорофеевА.В._У-232_vvod1.txt"
+file_output = "ДорофеевА.В._У-232_vivod1.txt"
+matrix = read_matrix(file_input)
+replace_negatives_positives(matrix)
+print_lower_triangle(matrix, file_output)
