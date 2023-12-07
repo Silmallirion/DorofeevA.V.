@@ -1,0 +1,21 @@
+def gcd(a, b):
+while b:
+a, b = b, a % b
+return a
+
+def reduce_fraction(num, denom):
+gcd_value = gcd(num, denom)
+return num // gcd_value, denom // gcd_value
+
+def divide_fractions(a, b, c, d):
+numerator = a * d
+denominator = b * c
+return reduce_fraction(numerator, denominator)
+
+a = int(input("Введите числитель первой дроби: "))
+b = int(input("Введите знаменатель первой дроби: "))
+c = int(input("Введите числитель второй дроби: "))
+d = int(input("Введите знаменатель второй дроби: "))
+
+result_numerator, result_denominator = divide_fractions(a, b, c, d)
+print("Результат деления дроби на дробь:", result_numerator, "/", result_denominator)
