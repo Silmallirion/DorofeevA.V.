@@ -1,0 +1,23 @@
+# -- coding: utf-8 --
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+min_sum_row = None
+max_sum_row = None
+min_sum = float('inf')
+max_sum = float('-inf')
+
+for row in matrix:
+    sum_row = sum(row)
+    if sum_row < min_sum:
+        min_sum = sum_row
+        min_sum_row = row
+    if sum_row > max_sum:
+        max_sum = sum_row
+        max_sum_row = row
+
+print("Строка с наименьшей суммой элементов:", min_sum_row)
+print("Сумма элементов строки с наименьшей суммой:", min_sum)
+print("Строка с наибольшей суммой элементов:", max_sum_row)
+print("Сумма элементов строки с наибольшей суммой:", max_sum)
