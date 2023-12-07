@@ -1,0 +1,29 @@
+# -- coding: utf-8 --
+import math
+
+def is_point_inside_circle(x, y, a, b, r):
+    distance = math.sqrt((x - a) ** 2 + (y - b) ** 2)
+    if distance <= r:
+        return True
+    else:
+        return False
+
+a = int(input("Введите координату a центра окружности: "))
+b = int(input("Введите координату b центра окружности: "))
+r = int(input("Введите радиус окружности: "))
+
+points = []
+num = 0
+
+n = int(input("Введите количество точек для проверки: "))
+for i in range(n):
+    x = int(input(f"Введите координату x{i+1} точки: "))
+    y = int(input(f"Введите координату y{i+1} точки: "))
+points.append((x, y))
+
+for point in points:
+    x, y = point
+    if is_point_inside_circle(x, y, a, b, r):
+        num += 1
+
+print("Количество точек лежащих внутри окружности:", num)
