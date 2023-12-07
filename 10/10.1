@@ -1,0 +1,35 @@
+def read_matrix(file_name):
+    matrix = []
+    with open(file_name, 'r') as file:
+        for line in file:
+            row = list(map(int, line.strip().split()))
+            matrix.append(row)
+    return matrix
+
+def find_min_max_rows(matrix):
+    min_row = matrix[0]
+    max_row = matrix[0]
+    min_sum = sum(min_row)
+    max_sum = sum(max_row)
+    for row in matrix:
+        row_sum = sum(row)
+        if row_sum < min_sum:
+            min_sum = row_sum
+            min_row = row
+        if row_sum > max_sum:
+            max_sum = row_sum
+            max_row = row
+    return min_row, min_sum, max_row, max_sum
+
+def print_results(file_name, min_row, min_sum, max_row, max_sum):
+    with open(file_name, 'w') as file:
+        file.write("Минимальная сумма элементов: {}\n".format(min_sum))
+        file.write("Строка с минимальной суммой элементов: {}\n".format(' '.join(map(str, min_row))))
+        file.write("Максимальная сумма элементов: {}\n".format(max_sum))
+        file.write("Строка с максимальной суммой элементов: {}\n".format(' '.join(map(str, max_row))))
+
+file_input = "ДорофеевА.В._У-232_vvod.txt"
+file_output = "ДорофеевА.В._У-232_vivod.txt"
+matrix = read_matrix(file_input)
+min_row, min_sum, max_row, max_sum = find_min_max_rows(matrix)
+print_results(file_output, min_row, min_sum, max_row, max_sum)
