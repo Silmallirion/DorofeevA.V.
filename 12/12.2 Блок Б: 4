@@ -1,0 +1,16 @@
+# -- coding: utf-8 --
+def simple(n, divisor=2):
+    if n <= 1:
+        return False
+    if divisor > int(n ** 0.5):
+        return True
+    if n % divisor == 0:
+        return False
+    return simple(n, divisor + 1)
+
+n = int(input("Введите натуральное число: "))
+
+if simple(n):
+    print("YES")
+else:
+    print("NO")
